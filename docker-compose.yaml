@@ -1,0 +1,28 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+    expose:
+      - "${PORT}"
+    ports:
+      - "80:${PORT}"
+    environment:
+      - NODE_ENV
+      - PORT
+      - POSTGRES_HOST
+      - POSTGRES_PORT
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+      - POSTGRES_DIALECT
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:11.2
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB

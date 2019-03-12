@@ -1,0 +1,7 @@
+log:
+  requests:
+    format: dev
+  other:
+    errorFile: ./logs/error.log
+    normalFile: ./logs/normal.log
+    normalLevel: debug
